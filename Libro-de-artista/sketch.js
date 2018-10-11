@@ -1,15 +1,9 @@
 //define the variable clicks
-var clicks = 4;
-let points = [];
+var clicks = 3;
 
 //setup
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-
-  let b = new Point(width / 2, height / 2, 10);
-  //push the point
-  points.push(b);
-  pointTimer();
 }
 
 //define variables
@@ -26,9 +20,9 @@ function draw() {
 	var quanty = map(mouseY, 0, height, 20, 70);
 
 //if 1 click
-	if (clicks == 1) {
+	//if (clicks == 1) {
     //change the background
-    background(200);
+    //background(200);
 
     //text
     //noStroke();
@@ -39,13 +33,6 @@ function draw() {
     //textSize ( 20 );
     //text( "Probably not", 15, 60);
 
-    for (let i = 0; i < points.length; i++) {
-        points[i].move();
-        points[i].show();
-        points[i].pointCheck(points, i);
-    }
-}
-
 		// interactive circle line
 		//for( var i=0; i < 15; i++ ) {
 		    //pos_x = width * i/10 + r;
@@ -53,10 +40,10 @@ function draw() {
         //fill(pos_x, mouseY, pos_y, mouseX);
         //ellipse( pos_x, mouseY, d );
 		//}
-	}
+	//}
 
   //if 2 clicks
-	else if (clicks == 2) {
+	if (clicks == 1) {
     //change the background
     background(random(0, 100));
 
@@ -104,7 +91,7 @@ function draw() {
 	}
 
   //if 3 clicks
-  else if (clicks == 3) {
+  else if (clicks == 2) {
     //change the background
     background(5);
 
@@ -128,7 +115,7 @@ function draw() {
 	}
 
   //if 4 clicks
-  else if (clicks == 4) {
+  else if (clicks == 3) {
     //change the background
     background(pos_y, mouseY, mouseX);
 
@@ -175,19 +162,11 @@ function mousePressed() {
 	clicks++;
 
   //reset the clicks value if it greater than 4
-	if (clicks > 4) clicks = 1;
+	if (clicks > 3) clicks = 1;
 }
 
 function randomLine (posY, posY2) {
   strokeWeight(random(6));
   stroke(mouseY, mouseX, mouseY);
   line(0, posY, width, posY2);
-}
-
-function pointTimer() {
-  //set the time for each point to appear
-    let b = new Point(random(width), random(height), random(20));
-    points.push(b);
-    // call a this function every 1000 miliseconds
-    setTimeout(pointTimer, random(1000));
 }
