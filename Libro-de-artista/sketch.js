@@ -56,16 +56,37 @@ function draw() {
     //textSize ( 20 );
     //text( "Can't you see me?", 15, 60);
 
-		// circle lines
-    fill(pos_x, mouseY, pos_y, mouseX);
-		let positionS = 0;
-    for (var x = 20; x <= width-20; x += quanty) {
-      ellipse (x, positionS, 20, 20);
-      positionS = positionS + 30;
-      if (positionS >= height) {
-        positionS = 0;
-      }
+    //define two new variables
+    let locX = random(width);
+    let locY = random(height);
+    let moveX = random(-5, 5);
+    let numPoints = 300;
+
+    for (var i = 0; i < numPoints; i++) {
+        ellipse(locX, locY, 20, 20);
     }
+
+    locX += moveX;
+
+    //if the point x location is greater or equal to the width, chages the this.moveX value
+    if (locX >= width) {
+      moveX = -moveX;
+    }
+
+    else if (locX <= 0) {
+      moveX = -moveX;
+    }
+
+		// circle lines
+    //fill(pos_x, mouseY, pos_y, mouseX);
+		//let positionS = 0;
+    //for (var x = 20; x <= width-20; x += quanty) {
+      //ellipse (x, positionS, 20, 20);
+      //positionS = positionS + 30;
+      //if (positionS >= height) {
+        positionS = 0;
+      //}
+    //}
 	}
 
   //if 3 clicks
