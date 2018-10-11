@@ -1,9 +1,15 @@
 //define the variable clicks
 var clicks = 4;
+let points = [];
 
 //setup
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+
+  let b = new Point(width / 2, height / 2, 10);
+  //push the point
+  points.push(b);
+  pointTimer();
 }
 
 //define variables
@@ -33,19 +39,26 @@ function draw() {
     //textSize ( 20 );
     //text( "Probably not", 15, 60);
 
+    for (let i = 0; i < points.length; i++) {
+        points[i].move();
+        points[i].show();
+        points[i].pointCheck(points, i);
+    }
+}
+
 		// interactive circle line
-		for( var i=0; i < 15; i++ ) {
-		    pos_x = width * i/10 + r;
-        noStroke();
-        fill(pos_x, mouseY, pos_y, mouseX);
-        ellipse( pos_x, mouseY, d );
-		}
+		//for( var i=0; i < 15; i++ ) {
+		    //pos_x = width * i/10 + r;
+        //noStroke();
+        //fill(pos_x, mouseY, pos_y, mouseX);
+        //ellipse( pos_x, mouseY, d );
+		//}
 	}
 
   //if 2 clicks
 	else if (clicks == 2) {
     //change the background
-    background(random(256));
+    background(random(0, 100));
 
     //text
     //noStroke();
@@ -169,4 +182,12 @@ function randomLine (posY, posY2) {
   strokeWeight(random(6));
   stroke(mouseY, mouseX, mouseY);
   line(0, posY, width, posY2);
+}
+
+function pointTimer() {
+  //set the time for each point to appear
+    let b = new Point(random(width), random(height), random(20));
+    points.push(b);
+    // call a this function every 1000 miliseconds
+    setTimeout(pointTimer, random(1000));
 }
