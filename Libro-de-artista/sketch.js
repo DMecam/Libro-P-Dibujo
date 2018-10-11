@@ -45,7 +45,7 @@ function draw() {
   //if 2 clicks
 	else if (clicks == 2) {
     //change the background
-    background(125);
+    background(random(256));
 
     //text
     //noStroke();
@@ -63,6 +63,7 @@ function draw() {
     let numPoints = 300;
 
     for (var i = 0; i < numPoints; i++) {
+        fill(random(256));
         ellipse(locX, locY, 20, 20);
     }
 
@@ -107,8 +108,8 @@ function draw() {
 		for (var x = 20; x <= width-20; x += quanty) {
 			for (var y = 20; y <= height-20; y+= quanty) {
         noStroke();
-        fill(random(256), random(256), 127, 175);
-				ellipse(x, y, 30, 30);
+        fill(random(256), 175);
+				ellipse(x, y, 10, 10);
 			}
 		}
 	}
