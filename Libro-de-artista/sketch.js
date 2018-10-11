@@ -25,13 +25,13 @@ function draw() {
     background(200);
 
     //text
-    noStroke();
-    fill ('rgb(174, 223, 233)');
-    rect( 10, 39, 145, 30, 50);
+    //noStroke();
+    //fill ('rgb(174, 223, 233)');
+    //rect( 10, 39, 145, 30, 50);
 
-    fill ( 0 );
-    textSize ( 20 );
-    text( "Click to change", 15, 60);
+    //fill ( 0 );
+    //textSize ( 20 );
+    //text( "Probably not", 15, 60);
 
 		// interactive circle line
 		for( var i=0; i < 15; i++ ) {
@@ -48,13 +48,13 @@ function draw() {
     background(125);
 
     //text
-    noStroke();
-    fill ('rgb(174, 223, 233)');
-    rect( 10, 39, 145, 30, 50);
+    //noStroke();
+    //fill ('rgb(174, 223, 233)');
+    //rect( 10, 39, 145, 30, 50);
 
-    fill ( 0 );
-    textSize ( 20 );
-    text( "Click to change", 15, 60);
+    //fill ( 0 );
+    //textSize ( 20 );
+    //text( "Can't you see me?", 15, 60);
 
 		// circle lines
     fill(pos_x, mouseY, pos_y, mouseX);
@@ -74,13 +74,13 @@ function draw() {
     background(5);
 
     //text
-    noStroke();
-    fill ('rgb(174, 223, 233)');
-    rect( 10, 39, 145, 30, 50);
+    //noStroke();
+    //fill ('rgb(174, 223, 233)');
+    //rect( 10, 39, 145, 30, 50);
 
-    fill ( 0 );
-    textSize ( 20 );
-    text( "Click to change", 15, 60);
+    //fill ( 0 );
+    //textSize ( 20 );
+    //text( "Hi!", 15, 60);
 
 		// Circles
 		for (var x = 20; x <= width-20; x += quanty) {
@@ -97,28 +97,34 @@ function draw() {
     //change the background
     background(pos_y, mouseY, mouseX);
 
-    //text
-    noStroke();
-    fill ('rgb(174, 223, 233)');
-    rect( 10, 39, 145, 30, 50);
+    //define two new variables
+    let num1 = random(height);
+    let num2 = random(height);
+    //complete the array
+    randomLine(num1, num2);
 
-    fill ( 0 );
-    textSize ( 20 );
-    text( "Click to change", 15, 60);
+    //text
+    //noStroke();
+    //fill ('rgb(174, 223, 233)');
+    //rect( 10, 39, 145, 30, 50);
+
+    //fill ( 0 );
+    //textSize ( 20 );
+    //text( "Maybe one day", 15, 60);
 
 		// line draw
-		for (var x = 50; x < width-50; x += quanty) {
-			for (var y = 50; y < height-50; y+= quanty) {
-				for (var i = 0; i < 16; i+=4) {
-          stroke(20);
-          strokeWeight(1);
-					line(mouseX, x, mouseY, y );
-				}
-        noFill();
-        stroke(mouseY);
-				rect(x, y, 30, 30);
-			}
-		}
+		//for (var x = 50; x < width-50; x += quanty) {
+			//for (var y = 50; y < height-50; y+= quanty) {
+				//for (var i = 0; i < 16; i+=4) {
+          //stroke(20);
+          //strokeWeight(1);
+					//line(mouseX, x, mouseY, y );
+				//}
+        //noFill();
+        //stroke(mouseY);
+				//rect(x, y, 30, 30);
+			//}
+		//}
 	}
 
   //update the pos_y value
@@ -135,4 +141,10 @@ function mousePressed() {
 
   //reset the clicks value if it greater than 4
 	if (clicks > 4) clicks = 1;
+}
+
+function randomLine (posY, posY2) {
+  strokeWeight(random(6));
+  stroke(mouseY, mouseX, mouseY);
+  line(0, posY, width, posY2);
 }
