@@ -125,7 +125,7 @@ function draw() {
 				//rect(x, y, 30, 30);
 			//}
 		//}
-	//}
+	}
 
   //update the pos_y value
   pos_y++;
