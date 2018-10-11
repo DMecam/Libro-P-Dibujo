@@ -45,7 +45,7 @@ function draw() {
   //if 2 clicks
 	if (clicks == 1) {
     //change the background
-    background(random(0, 50));
+    //background(random(0, 50));
 
     //text
     //noStroke();
